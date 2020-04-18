@@ -1,4 +1,7 @@
-# calendrier
+# Calendrier
+
+## Demo
+https://sergemazille-test-calendrier.netlify.app/
 
 ## Project setup
 ```
