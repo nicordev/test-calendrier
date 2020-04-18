@@ -1,7 +1,7 @@
 <template>
   <div class="month-selector">
     <select v-model="selectedMonthIndex" @change="handleInput">
-      <option :value="null" disabled>- Choisissez un mois -</option>
+      <option :value="null" disabled>- Aucune sélection -</option>
       <option
         :key="index"
         v-for="(monthName, index) in months"

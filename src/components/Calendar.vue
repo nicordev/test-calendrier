@@ -139,6 +139,8 @@ export default {
 
 <style lang="scss" scoped>
 .calendar {
+  font-size: 0.8rem;
+
   .week-labels,
   .line {
     display: flex;
@@ -152,14 +154,40 @@ export default {
   .week-label {
     display: flex;
     justify-content: center;
-    width: 50px;
     border: 1px solid transparent;
     margin-bottom: 4px;
+    width: 30px;
   }
 
   .cell {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+
+    .week-label {
+      width: 50px;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 1.2rem;
+
+    .week-label {
+      width: 80px;
+    }
+
+    .cell {
+      width: 80px;
+      height: 80px;
+    }
   }
 }
 </style>

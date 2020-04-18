@@ -32,7 +32,7 @@ export default {
   align-items: center;
   text-align: center;
   background-color: rgb(240, 240, 240);
-  border: 1px solid grey;
+  border: 1px solid rgb(233, 233, 233);
 
   &.isDisabled {
     background-color: rgb(253, 247, 247);
