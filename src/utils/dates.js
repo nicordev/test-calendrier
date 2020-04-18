@@ -16,3 +16,13 @@ export const months = [
   'novembre',
   'décembre'
 ];
+
+export const getDaysCountFrom = (year, month) => {
+  const nextMonth = month + 1;
+
+  return new Date(year, nextMonth, 0).getDate();
+};
+
+export const getDayOfTheWeekFrom = (year, month, day = 1) => {
+  return new Date(year, month, day).getDay(); // 0 = dimanche
+};
