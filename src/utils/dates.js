@@ -26,3 +26,7 @@ export const getDaysCountFrom = (year, month) => {
 export const getDayOfTheWeekFrom = (year, month, day = 1) => {
   return new Date(year, month, day).getDay(); // 0 = dimanche
 };
+
+export const getDayLabels = () => {
+  return ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+};
