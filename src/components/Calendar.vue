@@ -31,7 +31,8 @@ import { mapGetters } from 'vuex';
 import {
   getDaysCountFrom,
   getDayOfTheWeekFrom,
-  getDayLabels
+  getDayLabels,
+  getFormatedDate
 } from '../utils/dates';
 import CalendarBox from './CalendarBox';
 import DragSelect from 'dragselect';
@@ -85,20 +86,27 @@ export default {
       let lineIndex = 0;
 
       for (let monthDay = 1; monthDay <= daysCount; monthDay++) {
-        const dayIndex = this.dayOfTheWeek(monthDay);
+        const weekDayIndex = this.dayOfTheWeek(monthDay);
 
         // id de la case courante
-        const columnIndex = dayIndex === 0 ? 6 : dayIndex - 1; // 0 = dimanche
+        const columnIndex = weekDayIndex === 0 ? 6 : weekDayIndex - 1; // 0 = dimanche
         const id = `${lineIndex}${columnIndex}`;
+
+        const formatedDate = getFormatedDate(
+          weekDayIndex,
+          monthDay,
+          this.selectedMonthIndex,
+          this.currentYear
+        );
 
         // mise à jour de l'index de la ligne :
         // une semaine se termine par un dimanche (0 = dimanche)
-        if (dayIndex === 0) {
+        if (weekDayIndex === 0) {
           lineIndex++;
         }
 
         // mise à jour des données
-        daysData.push({ id, monthDay });
+        daysData.push({ id, monthDay, formatedDate });
       }
 
       return daysData;

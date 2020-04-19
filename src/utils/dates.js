@@ -17,6 +17,17 @@ export const months = [
   'Décembre'
 ];
 
+const days = [
+  'Dimanche',
+  'Lundi',
+  'Mardi',
+  'Mercredi',
+  'Jeudi',
+  'Vendredi',
+  'Samedi',
+  'Dimanche'
+];
+
 export const getDaysCountFrom = (year, month) => {
   const nextMonth = month + 1;
 
@@ -29,4 +40,11 @@ export const getDayOfTheWeekFrom = (year, month, day = 1) => {
 
 export const getDayLabels = () => {
   return ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+};
+
+export const getFormatedDate = (weekDayIndex, monthDay, monthIndex, year) => {
+  const weekDay = days[weekDayIndex];
+  const month = months[monthIndex].toLowerCase();
+
+  return `${weekDay} ${monthDay} ${month} ${year}`;
 };

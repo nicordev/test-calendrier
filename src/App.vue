@@ -12,6 +12,10 @@
         <h2 v-text="calendarTitle" />
         <Calendar />
       </div>
+
+      <div v-if="showSelectedDates">
+        <SelectedDatesDisplay />
+      </div>
     </div>
   </div>
 </template>
@@ -19,12 +23,14 @@
 <script>
 import MonthSelector from './components/MonthSelector';
 import Calendar from './components/Calendar';
+import SelectedDatesDisplay from './components/SelectedDatesDisplay';
 import { getCurrentYear, months } from './utils/dates';
 
 export default {
   components: {
     MonthSelector,
-    Calendar
+    Calendar,
+    SelectedDatesDisplay
   },
 
   computed: {
@@ -43,6 +49,10 @@ export default {
 
     showCalendar() {
       return this.selectedMonthName;
+    },
+
+    showSelectedDates() {
+      return this.$store.getters.selectedDates.length;
     }
   }
 };
@@ -60,6 +70,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
   }
 }
 </style>
