@@ -1,4 +1,8 @@
-import { getDaysCountFrom, getDayOfTheWeekFrom } from '../dates';
+import {
+  getDaysCountFrom,
+  getDayOfTheWeekFrom,
+  getFormatedDate
+} from '../dates';
 
 describe('dates', () => {
   it('février 2020 contient 29 jours', () => {
@@ -18,6 +22,18 @@ describe('dates', () => {
 
     const expected = 3; // 0 = dimanche
     const testCase = getDayOfTheWeekFrom(year, month, day);
+
+    expect(testCase).toEqual(expected);
+  });
+
+  it('getFormatedDate', () => {
+    const weekDayIndex = 3; // 3 = mercredi
+    const monthDay = 25;
+    const monthIndex = 10; // 0 = janvier
+    const year = 2020;
+
+    const expected = 'Mercredi 25 novembre 2020';
+    const testCase = getFormatedDate(weekDayIndex, monthDay, monthIndex, year);
 
     expect(testCase).toEqual(expected);
   });
