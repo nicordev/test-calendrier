@@ -12,7 +12,7 @@
       />
     </div>
 
-    <div class="lines">
+    <div class="lines" id="grid">
       <div
         class="line"
         :key="lineIndex"
@@ -165,7 +165,7 @@ export default {
     initDragSelect() {
       this.dragSelect = new DragSelect({
         selectables: document.getElementsByClassName('selectable-cell'),
-        area: document.querySelector('.lines'),
+        area: document.getElementById('grid'),
         callback: this.updateSelectedDates
       });
     },
