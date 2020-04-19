@@ -18,7 +18,7 @@ export default new Vuex.Store({
     },
 
     storeSelectedDates(state, dates) {
-      state.dates = dates;
+      state.selectedDates = dates;
     }
   },
 
