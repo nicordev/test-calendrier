@@ -247,6 +247,10 @@ export default {
   .cell {
     width: 30px;
     height: 30px;
+
+    &.isHighlighted:not(.ds-selected) {
+      background-color: rgb(206, 211, 233);
+    }
   }
 
   @media screen and (min-width: 768px) {
