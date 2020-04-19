@@ -211,6 +211,9 @@ export default {
 
       this.resetDragSelect();
       this.dragSelect.addSelection(selectedElements, true);
+
+      // enlève le style isHighlighted sur mobile
+      this.mouseleaveWeekDays(weekDayIndex);
     }
   },
 
