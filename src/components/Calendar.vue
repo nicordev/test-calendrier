@@ -165,6 +165,7 @@ export default {
     initDragSelect() {
       this.dragSelect = new DragSelect({
         selectables: document.getElementsByClassName('selectable-cell'),
+        area: document.querySelector('.lines'),
         callback: this.updateSelectedDates
       });
     },
