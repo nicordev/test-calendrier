@@ -8,13 +8,15 @@
         <MonthSelector />
       </div>
 
-      <div v-if="showCalendar" class="calendar-wrapper">
-        <h2 v-text="calendarTitle" />
-        <Calendar />
-      </div>
+      <div class="dates-selection">
+        <div v-if="showCalendar" class="calendar-wrapper">
+          <h2 v-text="calendarTitle" />
+          <Calendar />
+        </div>
 
-      <div v-if="showSelectedDates">
-        <SelectedDatesDisplay />
+        <div v-if="showSelectedDates">
+          <SelectedDatesDisplay />
+        </div>
       </div>
     </div>
   </div>
@@ -66,11 +68,26 @@ export default {
     margin-bottom: 30px;
   }
 
-  .calendar-wrapper {
+  .dates-selection {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
+
+    .calendar-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+
+      .calendar-wrapper {
+        margin-bottom: 0;
+        margin-right: 30px;
+        align-items: center;
+      }
+    }
   }
 }
 </style>
