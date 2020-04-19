@@ -34,10 +34,17 @@ import {
   getDayLabels
 } from '../utils/dates';
 import CalendarBox from './CalendarBox';
+import DragSelect from 'dragselect';
 
 export default {
   components: {
     CalendarBox
+  },
+
+  data() {
+    return {
+      dragSelect: null
+    };
   },
 
   computed: {
@@ -132,7 +139,36 @@ export default {
         this.selectedMonthIndex,
         monthDay
       );
+    },
+
+    updateSelectedDates(selectedDatesElements) {
+      const selectedDates = selectedDatesElements.map(element => {
+        return this.daysData.find(item => item.id === element.id);
+      });
+
+      this.$store.dispatch('setSelectedDates', selectedDates);
+    },
+
+    initDragSelect() {
+      this.dragSelect = new DragSelect({
+        selectables: document.getElementsByClassName('selectable-cell'),
+        callback: this.updateSelectedDates
+      });
+    },
+
+    resetDragSelect() {
+      this.dragSelect.stop();
+      this.dragSelect = null;
+      this.initDragSelect();
     }
+  },
+
+  updated() {
+    this.resetDragSelect();
+  },
+
+  mounted() {
+    this.initDragSelect();
   }
 };
 </script>

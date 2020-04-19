@@ -1,5 +1,9 @@
 <template>
-  <div class="calendar-box" :class="{ isDisabled }">
+  <div
+    class="calendar-box"
+    :class="{ 'selectable-cell': !isDisabled, isDisabled }"
+    :id="id"
+  >
     <div class="month-day" v-text="monthDay" />
   </div>
 </template>
@@ -27,6 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .calendar-box {
+  user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +41,12 @@ export default {
 
   &.isDisabled {
     background-color: rgb(253, 247, 247);
+  }
+
+  &.ds-selected {
+    background-color: rgb(70, 87, 161);
+    color: white;
+    font-weight: bold;
   }
 }
 </style>
