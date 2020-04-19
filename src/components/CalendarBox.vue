@@ -39,6 +39,10 @@ export default {
   background-color: rgb(240, 240, 240);
   border: 1px solid rgb(233, 233, 233);
 
+  &:hover {
+    background-color: rgb(199, 204, 228);
+  }
+
   &.isDisabled {
     background-color: rgb(253, 247, 247);
   }

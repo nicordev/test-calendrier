@@ -185,9 +185,11 @@ export default {
   .lines {
     display: flex;
     flex-direction: column;
+    cursor: crosshair;
   }
 
   .week-label {
+    user-select: none;
     display: flex;
     justify-content: center;
     border: 1px solid transparent;
