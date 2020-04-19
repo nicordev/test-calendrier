@@ -28,7 +28,7 @@ describe('MonthSelector', () => {
   it("sélectionner l'indice 5 correspond à choisir le mois de juin", () => {
     const wrapper = shallowMount(MonthSelector, { store: realStore, localVue });
     const monthIndex = 5;
-    const expectedMonthName = 'juin';
+    const expectedMonthName = 'Juin';
 
     // sélectionne l'indice 5
     const select = wrapper.find('select');
