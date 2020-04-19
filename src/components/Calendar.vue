@@ -1,11 +1,11 @@
 <template>
   <div class="calendar">
     <div class="week-labels">
-      <div
+      <WeekDayBox
         class="week-label"
         :key="index"
         v-for="(label, index) in dayLabels"
-        v-text="label"
+        :label="label"
       />
     </div>
 
@@ -35,11 +35,13 @@ import {
   getFormatedDate
 } from '../utils/dates';
 import CalendarBox from './CalendarBox';
+import WeekDayBox from './WeekDayBox';
 import DragSelect from 'dragselect';
 
 export default {
   components: {
-    CalendarBox
+    CalendarBox,
+    WeekDayBox
   },
 
   data() {
@@ -197,12 +199,9 @@ export default {
   }
 
   .week-label {
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    border: 1px solid transparent;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     width: 30px;
+    border: 1px solid transparent; // compense les bordures des cases
   }
 
   .cell {
