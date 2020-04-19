@@ -1,29 +1,44 @@
 # Calendrier
 
 ## Demo
+
 https://sergemazille-test-calendrier.netlify.app/
 
-## Project setup
+## Setup du projet
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile et sert avec hot reload pour le développement
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compile et minifie pour la production
+
 ```
 npm run build
 ```
 
-### Run your unit tests
+### Lance les tests unitaires
+
 ```
 npm run test
 ```
+![démo test unitaire](cypress/test_unitaire.gif)
 
-### Lints and fixes files
+### Lance les tests end-to-end
+
+```
+npm run test:e2e
+```
+
+![démo test e2e](cypress/test_e2e.gif)
+
+### Lint les fichier (avec modification)
+
 ```
 npm run lint
 ```
