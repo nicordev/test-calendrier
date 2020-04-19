@@ -6,6 +6,7 @@
         :key="index"
         v-for="(label, index) in dayLabels"
         :label="label"
+        @click.native="selectWeekDays(index)"
       />
     </div>
 
@@ -108,7 +109,7 @@ export default {
         }
 
         // mise à jour des données
-        daysData.push({ id, monthDay, formatedDate });
+        daysData.push({ id, monthDay, formatedDate, weekDayIndex });
       }
 
       return daysData;
@@ -170,6 +171,21 @@ export default {
       this.dragSelect.stop();
       this.dragSelect = null;
       this.initDragSelect();
+    },
+
+    selectWeekDays(weekDayIndex) {
+      weekDayIndex = weekDayIndex === 6 ? 0 : weekDayIndex + 1; // 0 = dimanche
+
+      const selectedDays = this.daysData.filter(
+        item => item.weekDayIndex === weekDayIndex
+      );
+
+      const selectedElements = selectedDays.map(item => {
+        return document.getElementById(item.id);
+      });
+
+      this.resetDragSelect();
+      this.dragSelect.addSelection(selectedElements, true);
     }
   },
 
