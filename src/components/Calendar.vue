@@ -7,6 +7,8 @@
         v-for="(label, index) in dayLabels"
         :label="label"
         @click.native="selectWeekDays(index)"
+        @mouseover.native="mouseoverWeekDays(index)"
+        @mouseleave.native="mouseleaveWeekDays(index)"
       />
     </div>
 
@@ -173,7 +175,7 @@ export default {
       this.initDragSelect();
     },
 
-    selectWeekDays(weekDayIndex) {
+    getElementsFromWeekDayIndex(weekDayIndex) {
       weekDayIndex = weekDayIndex === 6 ? 0 : weekDayIndex + 1; // 0 = dimanche
 
       const selectedDays = this.daysData.filter(
@@ -183,6 +185,28 @@ export default {
       const selectedElements = selectedDays.map(item => {
         return document.getElementById(item.id);
       });
+
+      return selectedElements;
+    },
+
+    mouseoverWeekDays(weekDayIndex) {
+      const selectedElements = this.getElementsFromWeekDayIndex(weekDayIndex);
+
+      selectedElements.forEach(element => {
+        element.classList.add('isHighlighted');
+      });
+    },
+
+    mouseleaveWeekDays(weekDayIndex) {
+      const selectedElements = this.getElementsFromWeekDayIndex(weekDayIndex);
+
+      selectedElements.forEach(element => {
+        element.classList.remove('isHighlighted');
+      });
+    },
+
+    selectWeekDays(weekDayIndex) {
+      const selectedElements = this.getElementsFromWeekDayIndex(weekDayIndex);
 
       this.resetDragSelect();
       this.dragSelect.addSelection(selectedElements, true);
