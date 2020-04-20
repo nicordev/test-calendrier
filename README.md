@@ -37,7 +37,7 @@ npm run test:e2e
 
 ![démo test e2e](cypress/test_e2e.gif)
 
-### Lint les fichier (avec modification)
+### Lint les fichiers (avec modification)
 
 ```
 npm run lint
